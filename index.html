@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- <base href="/gudinskaya-JS2020Q3/momentum/"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="owfont-regular.css">
+  <link rel="stylesheet" href="style.css" />
+  <title>momentum</title>
+  <script>
+    if(!localStorage.getItem('city')) {
+      localStorage.setItem('city', 'Минск');
+    }
+  </script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="weather__wrapper">
+      <div class="temperature__wrapper">
+        <i class="weather-icon owf"></i>
+        <div class="temperature"></div>
+        <div class="humidity"></div>
+        <div class="wind"></div>
+      </div>
+        <div class="weather-description"></div>
+        <input type="text" class="city"
+          autocomplete="off"
+          onchange="setCity(this.value)"
+          onblur="this.value = localStorage.getItem('city')"
+          onfocus="this.value=''">
+        </div>
+    <div class="general-content__wrapper">
+      <div class="day"></div>
+      <time class="time"></time>
+      <h1 class="greeting-name__wrapper" id="greeting-name__wrapper">
+        <span class="greeting" id="greeting"></span>
+        <input id="name" type="text"
+          class="name" placeholder="[Введите имя]"
+          autocomplete="off"
+          onblur="this.value = localStorage.getItem('name')"  
+          onfocus="this.value=''">
+      </h1>
+      <h2>Какая у Вас цель на сегодня?</h2>
+      <input type="text" class="focus"
+        placeholder="[Введите цель]"
+        autocomplete="off"
+        onblur="this.value = localStorage.getItem('focus')"
+        onchange="setFocus(this.value)"
+        onfocus="this.value=''">
+      <button class="btn btn-all">Поменять картинку</button>
+    </div>
+    <div class="quote__wrapper">
+      <div class="quote"></div>
+      <div class="figcaption"></div>
+      <button class="btn-quote btn-all">Другая цитата</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
